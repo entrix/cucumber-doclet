@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.sun.javadoc.Parameter;
+import javax.lang.model.element.VariableElement;
 
 public class Util {
 
@@ -219,11 +219,11 @@ System.out.println("élément pas une classe :" + nomClasse);
 		return listePhrasesRetour;
 	}
 
-	public static String ajoutParametreDansPhrasePossible(final String phrasePossible, final Parameter[] parametres) {
+	public static String ajoutParametreDansPhrasePossible(final String phrasePossible, final List<? extends VariableElement> parametres) {
 
 		String phraseApresTraitement = phrasePossible;
-		for (Parameter parametre : parametres) {
-			String nomParametre = "[" + parametre.name() + "]";
+		for (VariableElement parametre : parametres) {
+			String nomParametre = "[" + parametre.getSimpleName() + "]";
 			phraseApresTraitement = phraseApresTraitement.replaceFirst("\\([^\\)]*\\)|(:$)", "$1" + nomParametre);
 		}
 

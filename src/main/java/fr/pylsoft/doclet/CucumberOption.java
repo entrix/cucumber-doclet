@@ -3,7 +3,7 @@ package fr.pylsoft.doclet;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Option {
+public final class CucumberOption {
 	static final String NAME = "-name";
 	static final String OUT = "-d";
 	static final String XSL_TXT = "-xsltxt";
